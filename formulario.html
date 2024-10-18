@@ -12,13 +12,19 @@
   <h1>Bienvenidos a mi fiesta</h1>
   <h2>Por favor, confirmar asistencia:</h2>
 
+  <!-- Se agregan etiquetas label -->
   <form class="formulario">
-    Nombre <input type="text" name="name" id="name">
+    <label for="name">Nombre </label>
+    <input type="text" name="name" id="name">
+  
     <br />
-    Edad <input type="number" name="age" id="age">
+  
+    <label for="age"> Edad </label>
+    <input type="number" name="age" id="age">
+  
     <br />
-
-    Nacionalidad
+  
+    <label for="nationality">Nacionalidad</label>
     <select name="nationality" id="nationality">
       <option value="ar">Argentina</option>
       <option value="mx">Mexicana</option>
@@ -26,6 +32,7 @@
       <option value="vnzl">Venezolana</option>
     </select>
     <br />
+  
     <input type="submit">
   </form>
 
@@ -34,7 +41,7 @@
 
   </div>
 
-  <script src="../formulario.js"></script>
+  <script src="formulario.js"></script> <!-- Se corrije ruta para poder acceder al archivo js -->
 </body>
 
 </html>

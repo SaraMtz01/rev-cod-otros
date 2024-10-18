@@ -1,33 +1,37 @@
-var formulario = document.querySelector("#form")
+var formulario = document.querySelector("form") /* Se elimina el #, ya que se está haciendo referencia a una etiqueta y no a un ID */
 
-formulario.onsubmit = function(e) {
 
-  e.prevent();
+/* Se utiliza la syntaxis correcta de onsubmit */
+formulario.onsubmit = function(event) {
+
+  event.preventDefault();
   
-  var n = formulario.elements[0]
-  var e = formulario.elements[1]
-  var na = formulario.elements[2]
+  /* Se sustituye var por const para y se unifican dos variables para reducir el código ymejorar legibilidad */
+  const nombre = formulario.elements[0].value
+  const edad = formulario.elements[1].value
+  const na = formulario.elements[2]
 
-  var nombre = n.value
-  var edad = e.value
+/*   var nombre = n.value
+ var edad = e.value */ 
 
-  var i = na.selectedIndex
-  var nacionalidad = na.options[i].value
+  const i = na.selectedIndex
+  const nacionalidad = na.options[i].value
   console.log(nombre, edad)
   console.log(nacionalidad)
 
-  if (nombre.length === 0) {
-    n.classList.add("error")
-  }
-  if (edad < 18 || edad > 120) {
-    e.classList.add("error")
-  }
 
-if (nombre.length > 0 
-  && (edad > 18 
-    && edad < 120) ) {
+/* Se usa getElementById para agregar el estilo error al id name */
+  if (nombre.length === 0) {
+    document.getElementById('name').classList.add("error")
+  } 
+  
+  if (edad < 18 || edad > 120 && edad <=0 ) {
+    document.getElementById('age').classList.add("error")
+  } else
+   /* se pueden omitir estas líneas, ya que si no se cumple ninguna de las anteriores condiciones, se ejecutará la llamada a la función if (nombre.length > 0 && (edad > 18 
+    && edad < 120) ) */ {
   agregarInvitado(nombre, edad, nacionalidad)
-  }
+  } 
 }
 
 var botonBorrar = document.createElement("button")
