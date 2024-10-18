@@ -1,4 +1,4 @@
-var formulario = document.querySelector("form") /* Se elimina el #, ya que se está haciendo referencia a una etiqueta y no a un ID */
+const formulario = document.querySelector("form") /* Se elimina el #, ya que se está haciendo referencia a una etiqueta y no a un ID */
 
 
 /* Se utiliza la syntaxis correcta de onsubmit */
@@ -23,9 +23,7 @@ formulario.onsubmit = function(event) {
 /* Se usa getElementById para agregar el estilo error al id name */
   if (nombre.length === 0) {
     document.getElementById('name').classList.add("error")
-  } 
-  
-  if (edad < 18 || edad > 120 && edad <=0 ) {
+  } else if (edad < 18 || edad > 120 || edad <= 0 ) { /* se agrega  condición para que marque error al agregar edades negativas*/
     document.getElementById('age').classList.add("error")
   } else
    /* se pueden omitir estas líneas, ya que si no se cumple ninguna de las anteriores condiciones, se ejecutará la llamada a la función if (nombre.length > 0 && (edad > 18 
@@ -42,6 +40,7 @@ document.body.appendChild(corteLinea)
 document.body.appendChild(botonBorrar);
 
 function agregarInvitado(nombre, edad, nacionalidad) {
+  
 
   if (nacionalidad === "ar") {
     nacionalidad = "Argentina"
@@ -59,7 +58,7 @@ function agregarInvitado(nombre, edad, nacionalidad) {
 var lista = document.getElementById("lista-de-invitados")
 
 var elementoLista = document.createElement("div")
-elementoLista.classList.added("elemento-lista")
+elementoLista.classList.add("elemento-lista") /* se sustituye added por add */
 lista.appendChild(elementoLista)
 
 var spanNombre = document.createElement("span")
